@@ -1,0 +1,154 @@
+$color-search: #878787
+$color-active: #3780ca
+$color-disactive: #c3c3c3
+
+*
+	box-sizing: border-box
+
+html
+	font-size: 10px
+	height: 100%
+
+body
+	position: relative
+	font-size: 1.5rem
+	font-family: 'Roboto', sans-serif
+
+
+.container
+	max-width: 1154px
+	margin: 0 auto
+
+ul
+	margin: 0
+	padding: 0
+	list-style-type: none
+
+a
+	text-decoration: none
+	color: white
+	display: block
+
+h1
+	margin: 0	
+
+button
+	background: none
+	border: none
+	outline: none
+
+img
+	max-width: 100%
+
+[class^="icon-"]:before, [class*=" icon-"]:before
+	margin: 0
+
+.page
+	position: relative
+
+.switch
+	.switch__item
+		cursor: pointer
+		border-bottom: 3px solid $color-disactive
+		font-weight: bold
+		color: $color-disactive
+		font-size: 1.6rem
+		text-transform: uppercase
+		padding: 1.5rem
+	.switch__item-active
+		border-bottom: 3px solid $color-active
+		color: $color-active
+
+.subswitch
+	display: flex
+	.subswitch__item
+		border: 1px solid $color-active
+		border-right: none
+		color: $color-active
+		padding: 1rem 1.6rem
+		cursor: pointer
+		&:first-child
+			border-radius: 4px 0 0 4px
+		&:last-child
+			border-radius: 0 4px 4px 0
+			border-right: 1px solid $color-active
+	.subswitch__item-active
+		background: $color-active
+		color: white
+
+.header	
+	&__bg
+		background: url("../img/header-back.png") no-repeat
+		background-size: 100% 100%
+		position: absolute
+		height: 20.5rem
+		width: 100%
+		z-index: -1
+	.menu
+		height: 138px
+		display: flex
+		justify-content: space-between
+		align-items: center
+		&__nav
+			display: flex
+			align-items: center	
+		&__logo
+			width: 18.4rem
+		.navigation
+			margin-left: 6.6rem
+			&__list
+				display: flex
+			&__item
+				cursor: pointer
+				text-transform: uppercase
+				padding: 1rem
+		&__action
+			display: flex
+			justify-content: center
+			align-items: center
+			.search
+				color: $color-search
+				font-size: 2.8rem
+				cursor: pointer
+			.entry
+				cursor: pointer
+				padding: 0 2.8rem
+				border: 1px solid $color-search
+				border-radius: 4px
+				text-transform: uppercase
+				color: $color-search
+				height: 3.8rem
+				margin: 0 1.8rem
+			.register
+				@extend .entry
+				margin: 0
+				border: 1px solid $color-active
+				color: $color-active
+
+.content
+	padding-top: 9.2rem
+	.main
+		.title
+			&__main
+				h1
+					text-transform: uppercase
+					font-size: 2.1rem
+					color: $color-active
+					padding: 3.4rem 3.8rem 
+					position: relative
+					&:before
+						content: ''
+						display: block
+						position: absolute
+						left: 0
+						top: 0
+						height: 100%
+						width: 3px
+						background: $color-active
+			&__filter
+				display: flex
+				margin-top: 3.7rem				
+			&__subfilter
+				margin-top: 5.2rem
+
+.sidebar
