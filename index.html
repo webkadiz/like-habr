@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
 	<title>Document</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
 </head>
+
 <body>
 
 	<div class="page">
@@ -15,57 +17,223 @@
 
 			<div class="container">
 				<div class="menu">
-						<div class="menu__nav">
-							<div class="menu__logo">
-								<img src="src/img/logo.svg" alt="">
-							</div>
-							<nav class="navigation">
-								<ul class="navigation__list">
-									<li><a class="navigation__item" href="#">главная</a></li>
-									<li><a class="navigation__item" href="#">обо мне</a></li>
-									<li><a class="navigation__item" href="#">контакты</a></li>
-									<li><a class="navigation__item" href="#">теги</a></li>
-								</ul>
-							</nav>
+					<div class="menu__nav">
+						<div class="menu__logo">
+							<img src="src/img/logo.svg" alt="">
 						</div>
-						<!-- menu__nav -->
-						<div class="menu__action">
-							<div class="search">
-								<i class="icon-search"></i>
-							</div>
-							<button class="entry">войти</button>
-							<button class="register">регистрация</button>
-						</div>
-						<!-- menu__action -->
+						<nav class="navigation">
+							<ul class="navigation__list">
+								<li><a class="navigation__item" href="#">главная</a></li>
+								<li><a class="navigation__item" href="#">обо мне</a></li>
+								<li><a class="navigation__item" href="#">контакты</a></li>
+								<li><a class="navigation__item" href="#">теги</a></li>
+							</ul>
+						</nav>
 					</div>
+					<!-- menu__nav -->
+					<div class="menu__action">
+						<div class="search">
+							<i class="icon-search"></i>
+						</div>
+						<button class="entry">войти</button>
+						<button class="register">регистрация</button>
+					</div>
+					<!-- menu__action -->
+				</div>
 			</div>
 			<!-- container -->
 
 		</header>
 		<div class="content">
 			<div class="container">
-				<main class="main">
-					<div class="title">
-						<div class="title__main">
-							<h1>все статьи</h1>
+				<div class="content__inner">
+					<main class="main">
+						<div class="title">
+							<div class="title__main">
+								<h1>все статьи</h1>
+							</div>
+							<div class="title__filter switch">
+								<div class="switch__item switch__item-active">все подряд</div>
+								<div class="switch__item">лучшее</div>
+								<div class="switch__item">по авторам</div>
+								<div class="switch__item">по тегам</div>
+							</div>
+							<div class="subswitch title__subfilter">
+								<div class="subswitch__item subswitch__item-active">Сутки</div>
+								<div class="subswitch__item">Неделя</div>
+								<div class="subswitch__item">Месяц</div>
+							</div>
 						</div>
-						<div class="title__filter switch">
-							<div class="switch__item switch__item-active">все подряд</div>
-							<div class="switch__item">лучшее</div>
-							<div class="switch__item">по авторам</div>
-							<div class="switch__item">по тегам</div>
+						<div class="posts">
+							<div class="post">
+								<div class="post__author">
+									<div class="post__author-information">
+										<img src="src/img/user1.svg" class="post__author-image" width="42px" height="42px">
+										<div class="post__author-name">Ткаченко Владислав</div>
+										<div class="post__author-date">14 : 05 9 сентября</div>
+									</div>
+									<ul class="post__labels">
+										<li><a class="post__labels-item post__labels-item-active" href="#">JavaScript,&nbsp;&nbsp;</a></li>
+										<li><a class="post__labels-item" href="#">PHP,&nbsp;&nbsp;</a></li>
+										<li><a class="post__labels-item" href="#">WEB,&nbsp;&nbsp;</a></li>
+										<li><a class="post__labels-item" href="#">test</a></li>
+									</ul>
+								</div>
+								<div class="post__preview">
+									<img src="/src/img/coder.jpg" class="post__image">
+									<div class="post__bg"></div>
+									<div class="post__title">1 сентября 2017 года я стал программистом</div>
+								</div>
+								<div class="post__description">
+									<div class="post__text">В 1990 году был написан первый код. Его писал Страуструп - основатель языка С++. он писал
+										про все, как им пользоваться, алгоритмы, компиляторы, лайфхаки, хитрости и многое другое. Он рассказывал про синтаксис
+										языка , то как его надо использовать и зачем он нужен. как на нем писать мобильные приложения, web приложения,
+										десктоп приложение, драйвера и многоу другое. так же обучал функциональному... приграммированию и объектно-ориентированному
+										программированию. давал советы, учил, помогал, подсказывал, сидел в социальных сетях</div>
+									<div class="post__icons">
+										<div class="post__icon">
+											<i class="icon-eye"></i>
+											<div class="post__icon-number">35</div>
+										</div>
+										<div class="post__icon">
+											<i class="icon-bookmark"></i>
+											<div class="post__icon-number">2</div>
+										</div>
+										<div class="post__icon">
+											<i class="icon-comments"></i>
+											<div class="post__icon-number">122</div>
+										</div>
+										<div class="post__rating">
+											<i class="icon-minus"></i>
+											<div class="post__rating-number positive">+37</div>
+											<i class="icon-plus"></i>
+										</div>
+									</div>
+								</div>
+								<button class="post__action">читать далее</button>
+							</div>
 						</div>
-						<div class="subswitch title__subfilter">
-							<div class="subswitch__item subswitch__item-active">Сутки</div>
-							<div class="subswitch__item">Неделя</div>
-							<div class="subswitch__item">Месяц</div>
+					</main>
+					<!-- main -->
+					<aside class="sidebar">
+						<div class="categoryes">
+							<div class="slashed">
+								<div class="slashed__top">
+									<div class="slashed__top-content">категории</div>
+								</div>
+								<div class="slashed__bottom">
+									<div class="slashed__bottom-content">категории</div>
+								</div>
+							</div>
+							<nav>
+								<ul class="categoryes__list">
+									<li>
+										<a href="#" class="categoryes__item">
+											<span class="categoryes__item-title">веб разработка</span>
+											<span class="categoryes__item-rating positive">+37</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="categoryes__item">
+											<span class="categoryes__item-title">мобильная разработка</span>
+											<span class="categoryes__item-rating positive">+2</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="categoryes__item">
+											<span class="categoryes__item-title">desktop разработка</span>
+											<span class="categoryes__item-rating negative">-47</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="categoryes__item">
+											<span class="categoryes__item-title">нискоуровневая разработка</span>
+											<span class="categoryes__item-rating positive">+3</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="categoryes__item">
+											<span class="categoryes__item-title">разработка сетевых демонов</span>
+											<span class="categoryes__item-rating negative">-122</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="categoryes__item">
+											<span class="categoryes__item-title">высоконагруженная разраб...</span>
+											<span class="categoryes__item-rating positive">+65</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="categoryes__item">
+											<span class="categoryes__item-title">базы данных</span>
+											<span class="categoryes__item-rating positive">+77</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="categoryes__item">
+											<span class="categoryes__item-title">php</span>
+											<span class="categoryes__item-rating negative">-31</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="categoryes__item">
+											<span class="categoryes__item-title">javascript</span>
+											<span class="categoryes__item-rating positive">+40</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
 						</div>
-					</div>
-					<div class="posts"></div>
-				</main>
-				<!-- main -->
-				<aside class="sidebar">
-				<!-- sidebar -->
+						<div class="reading">
+							<div class="slashed">
+								<div class="slashed__top">
+									<div class="slashed__top-content">сейчас читают</div>
+								</div>
+								<div class="slashed__bottom">
+									<div class="slashed__bottom-content">сейчас читают</div>
+								</div>
+							</div>
+							<nav>
+								<ul class="reading__list">
+									<li class="reading__item">
+										<a href="#" class="reading__title">Новое открытие в сфере IT создали новый язык</a>
+										<div class="reading__icon">
+											<i class="icon-eye"></i>
+											<div class="reading__number">6</div>
+										</div>
+										<div class="reading__icon">
+											<i class="icon-comments"></i>
+											<div class="reading__number">42</div>
+										</div>
+									</li>
+									<li class="reading__item">
+										<a href="#" class="reading__title">Новое открытие в сфере IT создали новый язык</a>
+										<div class="reading__icon">
+											<i class="icon-eye"></i>
+											<div class="reading__number">12</div>
+										</div>
+										<div class="reading__icon">
+											<i class="icon-comments"></i>
+											<div class="reading__number">666</div>
+										</div>
+									</li>
+									<li class="reading__item">
+										<a href="#" class="reading__title">Новое открытие в сфере IT создали новый язык</a>
+										<div class="reading__icon">
+											<i class="icon-eye"></i>
+											<div class="reading__number">1</div>
+										</div>
+										<div class="reading__icon">
+											<i class="icon-comments"></i>
+											<div class="reading__number">3455</div>
+										</div>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</aside>
+					<!-- sidebar -->
+				</div>
 			</div>
 			<!-- container -->
 		</div>
@@ -73,6 +241,7 @@
 	</div>
 
 	<script src="build/build.js"></script>
-	
+
 </body>
+
 </html>

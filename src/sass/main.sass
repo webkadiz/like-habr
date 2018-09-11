@@ -1,6 +1,11 @@
 $color-search: #878787
 $color-active: #3780ca
-$color-disactive: #c3c3c3
+$color-disactive: #bababa
+$color-panel: #ebebeb
+$color-panel-text: #6d6d6d
+$color-panel-border: #ababab
+$color-positive: #338550
+$color-negative: #bc2b2b
 
 *
 	box-sizing: border-box
@@ -16,8 +21,9 @@ body
 
 
 .container
-	max-width: 1154px
+	max-width: 1174px
 	margin: 0 auto
+	padding: 0 10px
 
 ul
 	margin: 0
@@ -46,6 +52,12 @@ img
 .page
 	position: relative
 
+.positive
+	color: $color-positive
+
+.negative
+	color: $color-negative
+
 .switch
 	.switch__item
 		cursor: pointer
@@ -58,6 +70,25 @@ img
 	.switch__item-active
 		border-bottom: 3px solid $color-active
 		color: $color-active
+
+.slashed
+	position: absolute 
+	font-size: 2.9rem
+	left: 50%
+	color: $color-active
+	font-weight: bold
+	transform: translate(-50%, -50%)
+	z-index: 100
+	&__top
+		overflow: hidden
+		&-content
+			white-space: nowrap
+			transform: translate(2px, 45%)
+	&__bottom
+		overflow: hidden
+		&-content
+			white-space: nowrap
+			transform: translate(0, -55%)
 
 .subswitch
 	display: flex
@@ -127,29 +158,213 @@ img
 
 .content
 	padding-top: 9.2rem
-	.main
-		.title
-			&__main
-				h1
-					text-transform: uppercase
-					font-size: 2.1rem
-					color: $color-active
-					padding: 3.4rem 3.8rem 
-					position: relative
-					&:before
-						content: ''
-						display: block
+	&__inner
+		display: flex
+		justify-content: space-between
+		.main
+			flex: 2
+			margin-right: 30px
+			.title
+				&__main
+					h1
+						text-transform: uppercase
+						font-size: 2.1rem
+						color: $color-active
+						padding: 3.4rem 3.8rem 
+						position: relative
+						&:before
+							content: ''
+							display: block
+							position: absolute
+							left: 0
+							top: 0
+							height: 100%
+							width: 3px
+							background: $color-active
+				&__filter
+					display: flex
+					margin-top: 3.7rem				
+				&__subfilter
+					margin-top: 3.7rem
+			.posts
+				.post
+					margin-top: 3.7rem
+					
+					&__author
+						&-information
+							display: flex
+							align-items: center
+						&-name
+							font-weight: bold
+							color: $color-active
+							font-size: 1.3rem
+							margin-left: 1.6rem
+							margin-right: 3.2rem
+						&-date
+							font-size: 1.1rem
+							color: $color-disactive
+					&__labels
+						display: flex
+						margin: 1.8rem 0
+						&-item
+							transition: .2s
+							color: darken($color-disactive, 30%)
+							&:hover
+								color: $color-active
+					&__preview
+						height: 420px
+						overflow: hidden
+						position: relative
+					&__title
+						width: 100%
+						height: 100%
+						position: absolute
+						left: 0
+						bottom: 85px
+						display: flex
+						align-items: flex-end
+						color: white
+						font-size: 3.1rem
+						font-weight: bold
+						padding: 0 3.8rem
+					&__image
+					&__bg
+						width: 100%
+						height: 100%
 						position: absolute
 						left: 0
 						top: 0
-						height: 100%
-						width: 3px
+						background: black
+						opacity: .58
+					&__description
+						padding: 1.5rem 3.8rem
+						margin-top: 1.8rem
+						position: relative
+						display: flex
+						&:before
+							content: ''
+							position: absolute
+							left: 0
+							top: 0
+							bottom: 0
+							width: 0.6rem
+							background: black
+							opacity: .14
+						&:after
+							content: ''
+							position: absolute
+							right: 0
+							top: 0
+							bottom: 0
+							width: 0.6rem
+							background: black
+							opacity: .14
+					&__text
+						opacity: .61
+						line-height: 2rem
+					&__icons
+						display: flex
+						flex-direction: column
+						justify-content: space-between
+						margin-left: 5rem
+					&__icon
+						cursor: pointer
+						display: flex
+						align-items: center
+						&:hover
+							color: $color-active
+							& > *
+								opacity: 1
+						i
+							transition: .2s
+							opacity: .4
+						&-number
+							transition: .2s
+							opacity: .61
+							font-size: 1.2rem
+							margin-left: 1rem
+					&__rating
+						display: flex
+						align-items: center
+						i
+							transition: .2s
+							opacity: .6
+							font-size: 1rem
+						.icon-plus, .icon-minus
+							cursor: pointer
+							transition: color .2s
+						.icon-plus:hover, .icon-minus:hover
+							opacity: 1
+						.icon-plus:hover
+							color: $color-positive
+						.icon-minus:hover
+							color: $color-negative
+						&-number
+							font-size: 1.3rem
+							font-weight: bold
+							margin: 0 1rem
+					&__action
+						cursor: pointer
+						margin-top: 1.8rem
+						margin-left: 3.8rem
+						padding: 1.2rem 2.4rem
+						color: $color-active
+						border: 1px solid $color-active
+						border-radius: 4px
+						display: block
+						text-transform: uppercase
+						margin-bottom: 10rem
+						transition: .2s
+						&:hover
+							background: $color-active
+							color: white
+		.sidebar
+			flex: 1
+			.categoryes
+				position: relative
+				background: $color-panel
+				&__list
+					padding: 2rem 0
+					& li:last-child .categoryes__item
+						border: none
+				&__item
+					display: flex
+					justify-content: space-between
+					color: $color-panel-text
+					padding: 1.6rem 3.5rem
+					font-weight: bold
+					text-transform: uppercase
+					border-bottom: 1px solid $color-panel-border
+					transition: .2s
+					&-rating
+						transition: .2s
+					&:hover
 						background: $color-active
-			&__filter
-				display: flex
-				margin-top: 3.7rem				
-			&__subfilter
-				margin-top: 5.2rem
-
-.sidebar
-	
+						color: white
+						.positive, .negative
+							color: white
+			.reading
+				position: relative
+				background: $color-panel
+				margin-top: 8.5rem
+				&__list
+					padding: 2rem 0
+				&__item
+					display: flex
+					flex-wrap: wrap
+					padding: 2.5rem 3rem
+					border-bottom: 1px solid $color-panel-border
+				&__title
+					width: 100%
+					font-size: 1.9rem
+					color: $color-panel-text
+					font-weight: bold
+				&__icon
+					color: $color-active
+					display: flex
+					align-items: center
+					margin-right: 2rem
+					margin-top: 2.5rem
+				&__number
+					font-size: 1.2rem
+					margin-left: 1.6rem
