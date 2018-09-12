@@ -3,7 +3,7 @@ $color-active: #3780ca
 $color-disactive: #bababa
 $color-panel: #ebebeb
 $color-panel-text: #6d6d6d
-$color-panel-border: #ababab
+$color-panel-border: #d3d3d3
 $color-positive: #338550
 $color-negative: #bc2b2b
 
@@ -35,7 +35,7 @@ a
 	color: white
 	display: block
 
-h1
+h1, h2, h3, h4, h5, h6
 	margin: 0	
 
 button
@@ -188,8 +188,7 @@ img
 					margin-top: 3.7rem
 			.posts
 				.post
-					margin-top: 3.7rem
-					
+					margin-top: 3.7rem					
 					&__author
 						&-information
 							display: flex
@@ -334,7 +333,7 @@ img
 					padding: 1.6rem 3.5rem
 					font-weight: bold
 					text-transform: uppercase
-					border-bottom: 1px solid $color-panel-border
+					border-bottom: 2px solid $color-panel-border
 					transition: .2s
 					&-rating
 						transition: .2s
@@ -349,11 +348,13 @@ img
 				margin-top: 8.5rem
 				&__list
 					padding: 2rem 0
+					& li:last-child .reading__item
+						border: none
 				&__item
 					display: flex
 					flex-wrap: wrap
-					padding: 2.5rem 3rem
-					border-bottom: 1px solid $color-panel-border
+					padding: 2rem 3rem
+					border-bottom: 2px solid $color-panel-border
 				&__title
 					width: 100%
 					font-size: 1.9rem
@@ -364,7 +365,88 @@ img
 					display: flex
 					align-items: center
 					margin-right: 2rem
-					margin-top: 2.5rem
+					margin-top: 2rem
 				&__number
 					font-size: 1.2rem
-					margin-left: 1.6rem
+					margin-left: 1.3rem
+			.author
+				position: relative
+				background: $color-panel
+				margin-top: 8.5rem
+				&__list
+					padding: 2rem 0
+				&__item
+					position: relative
+					color: $color-positive
+					display: flex
+					justify-content: space-between
+					align-items: center
+					padding: 2.5rem 3rem
+					border-bottom: 2px solid $color-panel-border
+					&:before
+						content: ""
+						position: absolute
+						left: 0
+						bottom: -2px
+						height: 2px
+						background: $color-positive
+						width: var(--rating)
+				&__info
+					display: flex
+					& > div
+						display: flex
+						flex-direction: column
+						justify-content: space-between
+						margin-left: 10px
+				&__name
+					color: $color-panel-text
+					font-weight: bold
+				&__rating
+					font-weight: bold
+					font-size: 1.8rem
+				&__subscribe
+					display: flex
+					align-items: center
+				&__number
+					margin-left: 1rem
+					font-size: 1.2rem
+
+.pagination
+	&__arrows
+		display: flex
+		font-size: 1.6rem
+		text-transform: uppercase
+		font-weight: bold
+	&__left
+		margin-right: 2.5rem
+	&__top
+	&__top, &__left
+		color: $color-disactive
+		&-active
+			color: $color-active
+	&__list
+		margin-top: 1.4rem
+		display: flex
+		& li:last-child .pagination__item
+			border-right: 2px solid $color-active
+	&__item
+		display: flex
+		justify-content: center
+		align-items: center
+		font-size: 1.6rem
+		width: 3.4rem
+		height: 3rem
+		border: 2px solid $color-active
+		border-right: none
+		color: $color-active
+		transition: .2s
+		font-weight: bold
+		i
+			font-size: 1.4rem
+		&:hover
+			background: $color-active
+			color: white	
+		&-active
+			background: $color-active
+			color: white
+			
