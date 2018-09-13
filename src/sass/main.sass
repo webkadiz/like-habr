@@ -6,6 +6,7 @@ $color-panel-text: #6d6d6d
 $color-panel-border: #d3d3d3
 $color-positive: #338550
 $color-negative: #bc2b2b
+$color-footer: #f4f2f2
 
 *
 	box-sizing: border-box
@@ -133,6 +134,19 @@ img
 				cursor: pointer
 				text-transform: uppercase
 				padding: 1rem
+				position: relative
+				&:before
+					content: ''
+					position: absolute
+					width: 100%
+					bottom: 0
+					left: 50%
+					transform: translateX(-50%) scaleX(0)
+					height: 2px
+					background: white
+					transition: .2s
+				&:hover:before
+					transform: translateX(-50%) scaleX(1)
 		&__action
 			display: flex
 			justify-content: center
@@ -140,7 +154,11 @@ img
 			.search
 				color: $color-search
 				font-size: 2.8rem
+				opacity: .6
 				cursor: pointer
+				transition: .2s
+				&:hover
+					opacity: 1
 			.entry
 				cursor: pointer
 				padding: 0 2.8rem
@@ -150,11 +168,18 @@ img
 				color: $color-search
 				height: 3.8rem
 				margin: 0 1.8rem
+				transition: .2s
+				&:hover
+					background: $color-search
+					color: white
 			.register
 				@extend .entry
 				margin: 0
 				border: 1px solid $color-active
 				color: $color-active
+				&:hover
+					background: $color-active
+					color: white	
 
 .content
 	padding-top: 9.2rem
@@ -450,3 +475,100 @@ img
 			background: $color-active
 			color: white
 			
+.subfooter
+	margin-top: 10rem
+	position: relative
+	&:before
+		content: ''
+		position: absolute
+		top: -3rem
+		left: 0
+		right: 0
+		height: 1px
+		background: $color-panel
+	&__inner
+		display: flex
+		position: relative		
+		.watching
+			position: relative
+			flex: 2
+			background: $color-panel
+			margin-right: 3rem
+			&__subfilter
+				padding: 2rem 5rem
+    		padding-top: 2.5rem
+				border-bottom: 1px solid $color-panel-border
+			&__list
+				& li:last-child .watching__item
+					border: none
+			&__item
+				padding: 1.6rem 5rem
+				border-bottom: 1px solid $color-panel-border
+			&__date
+				color: $color-disactive
+				margin-bottom: 0.7rem
+				font-size: 1.2rem
+			&__title
+				color: $color-panel-text
+				font-size: 1.9rem
+				font-weight: bold
+			&__icons
+				display: flex
+				margin-top: 1.6rem
+			&__icon
+				display: flex
+				align-items: center
+				color: $color-active
+				margin-right: 2.2rem
+			&__number
+				font-size: 1.2rem
+				margin-left: 1.2rem
+			&__rating
+				font-weight: bold
+				font-size: 1.2rem
+		.reclame
+			flex: 1
+			background: $color-panel
+
+.footer
+	background: $color-footer
+	margin-top: 3rem
+	&__inner
+		display: flex
+		justify-content: space-between
+		padding: 4rem 0
+	&__title
+		text-transform: uppercase
+		font-size: 1.6rem
+		margin-bottom: 2rem
+	&__list
+		& li:last-child .footer__item
+			margin-bottom: 0
+	&__item
+		margin-bottom: 1.8rem
+		font-size: 1.3rem
+		color: darken($color-panel-border, 10%)
+		&:hover
+			color: darken($color-panel-border, 30%)
+
+.signature
+	&__email
+		cursor: pointer
+		transform: translateY(-4px)
+		display: block
+		color: white
+		font-size: 2rem
+		padding: 0 2.2rem
+		height: 5.5rem
+		border-radius: 4px
+		background: $color-active
+		margin-top: 2rem
+		box-shadow: 0 4px 0 darken($color-active, 20%)
+		i
+			margin-right: 1.5rem
+		&:hover
+			transform: translateY(-3px)
+			box-shadow: 0 3px 0 darken($color-active, 20%)
+		&:active
+			transform: translateY(0)
+			box-shadow: 0 0px 0 darken($color-active, 20%)
