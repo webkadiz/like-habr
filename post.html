@@ -48,89 +48,92 @@
 			<div class="container">
 				<div class="content__inner">
 					<main class="main">
-						<div class="title">
-							<div class="title__main">
-								<h1>все статьи</h1>
+						<div class="post">
+							<div class="post__author">
+								<img src="/src/img/user1.svg" alt="" class="post__author-image" width="42" height="42">
+								<div class="post__author-name">Ткаченко Владислав</div>
+								<div class="post__author-date">14:12 04 сентября</div>
+								<h1 class="post__author-title">1 сентября 2017 года я стад программистом</h1>
 							</div>
-							<div class="title__filter switch">
-								<div class="switch__item switch__item-active">все подряд</div>
-								<div class="switch__item">лучшее</div>
-								<div class="switch__item">по авторам</div>
-								<div class="switch__item">по тегам</div>
+							<div class="post__content">
+								<p>Объектно-ориентированное программирование (ООП) — это шаблон проектирования программного обеспечения, который позволяет решать задачи с точки зрения объектов и их взаимодействий. ООП обычно реализуется с помощью классов или прототипов. Большинство объектно-ориентированных языков (Java, C++, Ruby, Python и др.) используют наследование на основе классов. JavaScript реализует ООП через прототипное наследование. В этой статье мы рассмотрим оба эти подхода в JavaScript, обсудим их преимущества и недостатки, а также предложим альтернативу для разработки более модульных и масштабируемых приложений.
+										<br><br>
+										Что такое объект?
+										Принцип ООП заключается в том, чтобы составлять систему из объектов, решающих простые задачи, которые вместе составляют сложную программу. Объект состоит из приватных изменяемых состояний и функций (методов), которые работают с этими состояниями. У объектов есть определение себя (self, this) и поведение, наследуемое от чертежа, т.е. класса (классовое наследование) или других объектов (прототипное наследование).
+										<br><br>
+										Наследование — способ сказать, что эти объекты похожи на другие за исключением некоторых деталей. Наследование позволяет ускорить разработку за счёт повторного использования кода.
+										<br><br>
+										Классовое наследование
+										В классовом ООП классы являются чертежами для объектов. Объекты (или экземпляры) создаются на основе классов. Существует конструктор, который используется для создания экземпляра класса с заданными свойствами.
+								</p>
+								<p><br>Например:<br><br>
+
+										class Person {<br>
+											constructor(firstName, lastName) {<br>
+												this.firstName = firstName<br>
+												this.lastName = lastName<br>
+											}<br>
+											getFullName() {<br>
+												return this.firstName + ' ' + this.lastName<br>
+											}<br>
+										}<br><br>
+										Здесь при помощи ключевого слова class из ES6 мы создаём класс Person со свойствами firstName и lastName, которые хранятся в this. Значения свойств задаются в конструкторе, а доступ к ним осуществляется в методе getFullName().
+										<br><br>
+										Мы создаём экземпляр класса Person с именем person с помощью ключевого слова new:
+										<br><br>
+										let person = new Person('Dan', 'Abramov')
+										person.getFullName() //> "Dan Abramov"
+										// Мы можем использовать акцессор или получить доступ напрямую
+										person.firstName //> "Dan"
+										person.lastName //> "Abramov"
+										Объекты, созданные с помощью ключевого слова new, изменяемы. Другими словами, изменения в классе повлияют на все объекты, являющиеся экземплярами этого класса, а также на дочерние классы, которые его расширяют (extends).
+								</p>
+								<p>Для расширения класса мы можем создать другой класс. Расширим класс Person с помощью класса User. User — это Person с почтой и паролем:
+										<br><br>
+											class User extends Person {
+												constructor(firstName, lastName, email, password) {
+													super(firstName, lastName)
+													this.email = email
+													this.password = password
+												 }
+												 getEmail() {
+													 return this.email
+												 }
+												 getPassword() {
+													 return this.password
+												 }
+											}
+											Выше мы создали класс User, расширяющий возможности Person путём добавления свойств email и password и функций доступа к ним. В функции App() ниже мы создаём объект нового класса user:
+											<br><br>
+											function App() {
+												let user = new User('Dan', 
+																						'Abramov', 
+																						'dan@abramov.com', 
+																						'iLuvES6')
+												user.getFullName() //> "Dan Abramov"
+												user.getEmail() //> "dan@abramov.com"
+												user.getPassword() //> "iLuvES6"
+												user.firstName //> "Dan"
+												user.lastName //> "Abramov"
+												user.email //> "dan@abramov.com"
+												user.password //> "iLuvES6"
+											}
+								</p>
+								<p>Всё вроде бы хорошо работает, но использование классового подхода к наследованию привело к большому конструктивному недостатку: откуда пользователи класса User (например, App) могут знать, что у этого класса есть свойства firstName и lastName и функция getFullName? Одного взгляда на код класса User недостаточно для того, чтобы сказать что-либо о его родительском классе. В итоге приходится копаться в документации или искать нужный код по всей иерархии классов.
+										<br><br>
+												Как говорит Дэн Абрамов:
+												<br><br>
+												Проблема с наследованием заключается в том, что у потомков слишком высокий уровень доступа к деталям реализации каждого базового класса в иерархии и наоборот. После изменения требований рефакторинг иерархии классов настолько сложно провести, что она превращается в полную неразбериху со следами устаревших требований.
+												<br><br>
+												Классовое наследование построено на создании связей через зависимости. На основе базовых классов (или суперклассов) создаются производные классы. Классовое наследование хорошо подходит для небольших и простых приложений, которые редко меняются и у которых не более одного уровня наследования (неглубокие деревья наследования позволяют избежать проблемы хрупкого базового класса) или совершенно разные сценарии использования. Однако по мере расширения иерархии такое наследование со временем будет невозможно поддерживать.
+												<br><br>
+												Эрик Эллиот описал, как классовое наследование может потенциально привести к провалу проекта, а в худшем случае — к провалу компании:
+												<br><br>
+												Как только у вас наберётся достаточно клиентов, использующих new, вы даже при желании не сможете изменить реализацию конструктора, а если попытаетесь, то сломаете весь чужой код.
+												<br><br>
+												Когда много производных классов с очень разными функциями наследуются от одного базового класса, любое, казалось бы, безобидное изменение в базовом классе может привести к сбою в работе производных. За счёт усложнения кода и всего процесса создания продукта вы могли бы смягчить побочные эффекты, создав контейнер для инъекций зависимостей. Это обеспечило бы единый интерфейс для создания сервисов, потому что позволило бы абстрагироваться от подробностей создания. Есть ли способ получше?
+								</p>
 							</div>
-							<div class="subswitch title__subfilter">
-								<div class="subswitch__item subswitch__item-active">Сутки</div>
-								<div class="subswitch__item">Неделя</div>
-								<div class="subswitch__item">Месяц</div>
-							</div>
-						</div>
-						<div class="posts">
-							<div class="post">
-								<div class="post__author">
-									<div class="post__author-information">
-										<img src="src/img/user1.svg" class="post__author-image" width="42px" height="42px">
-										<div class="post__author-name">Ткаченко Владислав</div>
-										<div class="post__author-date">14 : 05 9 сентября</div>
-									</div>
-									<ul class="post__labels">
-										<li><a class="post__labels-item post__labels-item-active" href="#">JavaScript,&nbsp;&nbsp;</a></li>
-										<li><a class="post__labels-item" href="#">PHP,&nbsp;&nbsp;</a></li>
-										<li><a class="post__labels-item" href="#">WEB,&nbsp;&nbsp;</a></li>
-										<li><a class="post__labels-item" href="#">test</a></li>
-									</ul>
-								</div>
-								<div class="post__preview">
-									<img src="/src/img/coder.jpg" class="post__image">
-									<div class="post__bg"></div>
-									<div class="post__title">1 сентября 2017 года я стал программистом</div>
-								</div>
-								<div class="post__description">
-									<div class="post__text">В 1990 году был написан первый код. Его писал Страуструп - основатель языка С++. он писал
-										про все, как им пользоваться, алгоритмы, компиляторы, лайфхаки, хитрости и многое другое. Он рассказывал про синтаксис
-										языка , то как его надо использовать и зачем он нужен. как на нем писать мобильные приложения, web приложения,
-										десктоп приложение, драйвера и многоу другое. так же обучал функциональному... приграммированию и объектно-ориентированному
-										программированию. давал советы, учил, помогал, подсказывал, сидел в социальных сетях</div>
-									<div class="post__icons">
-										<div class="post__icon">
-											<i class="icon-eye"></i>
-											<div class="post__icon-number">35</div>
-										</div>
-										<div class="post__icon">
-											<i class="icon-bookmark"></i>
-											<div class="post__icon-number">2</div>
-										</div>
-										<div class="post__icon">
-											<i class="icon-comments"></i>
-											<div class="post__icon-number">122</div>
-										</div>
-										<div class="post__rating">
-											<i class="icon-minus"></i>
-											<div class="post__rating-number positive">+37</div>
-											<i class="icon-plus"></i>
-										</div>
-									</div>
-								</div>
-								<a href="/post.html" class="post__action">читать далее</a>
-							</div>
-						</div>
-						<div class="pagination">
-							<div class="pagination__arrows">
-								<a href="#" class="pagination__left"><i class="icon-left-open"></i> сюда</a>
-								<a href="#" class="pagination__top pagination__top-active">туда <i class="icon-right-open"></i></a>
-							</div>
-							<nav>
-								<ul class="pagination__list">
-									<li><a href="#" class="pagination__item"><i class="icon-double-arrow-left"></i></a></li>
-									<li><a href="#" class="pagination__item pagination__item-active">1</a></li>
-									<li><a href="#" class="pagination__item">2</a></li>
-									<li><a href="#" class="pagination__item">3</a></li>
-									<li><a href="#" class="pagination__item">4</a></li>
-									<li><a href="#" class="pagination__item">5</a></li>
-									<li><a href="#" class="pagination__item">6</a></li>
-									<li><a href="#" class="pagination__item">7</a></li>
-									<li><a href="#" class="pagination__item"><i class="icon-double-arrow-right"></i></a></li>
-								</ul>
-							</nav>
 						</div>
 					</main>
 					<!-- main -->
@@ -321,6 +324,63 @@
 			</div>
 			<!-- container -->
 		</div>
+		<div class="discuss">
+			<div class="container">
+				<div class="discuss__inner">
+					<div class="discuss__content">
+						<div class="discuss__post">
+							<div class="toolbar">
+								<div class="toolbar__icons">
+									<div class="toolbar__icon">
+										<i class="icon-eye"></i>
+										<div class="toolbar__number">65</div>
+									</div>
+									<div class="toolbar__icon">
+										<i class="icon-comments"></i>
+										<div class="toolbar__number">1233</div>
+									</div>
+									<div class="toolbar__icon">
+										<i class="icon-bookmark"></i>
+										<div class="toolbar__number">5</div>
+									</div>
+									<div class="toolbar__icon">
+										<div class="toolbar__rating positive"><i class="icon-minus"></i>+35<i class="icon-plus"></i></div>
+									</div>
+								</div>
+								<div class="share">
+									<div class="share__title">поделиться публикацией</div>
+									<img src="/src/img/twitter.svg" alt="" class="share__item share__icon" width="28" height="28">
+									<img src="/src/img/facebook.svg" alt="" class="share__item share__icon" width="28" height="28">
+									<img src="/src/img/vk.svg" alt="" class="share__item share__icon" width="28" height="28">
+								</div>
+							</div>
+							<div class="about">
+								<div class="about__wrapper">
+									<div class="about__info">
+										<img src="/src/img/user2.svg" alt="" class="about__images" height="50" width="50">
+										<div class="about__field">
+											<div class="about__value about__value-rating">66</div>
+											<div class="about__label">рейтинг</div>
+										</div>
+										<div class="about__field">
+											<div class="about__value about__value-follower">30</div>
+											<div class="about__label">подписчиков</div>
+										</div>
+									</div>
+									<div class="about__buttons">
+										<a href="#" class="about__button about__write"><i class="icon-mail-alt"></i>написать</a>
+										<a href="#" class="about__button about__subscribe"><i class="icon-follower"></i>подписаться</a>
+									</div>
+								</div>
+								<div class="about__name">Ткаченко Владислав</div>
+								<div class="about__description">я крутой веб разработчик</div>
+							</div>
+						</div>
+					</div>
+					<div class="discuss__match"></div>
+				</div>
+			</div>
+		</div>
 		<footer class="subfooter">
 			<div class="container">
 				<div class="subfooter__inner">
@@ -462,7 +522,8 @@
 		<!-- content -->
 	</div>
 
-	<script src="build/main.js"></script>
+	<script src="build/build.js"></script>
+	<script src="build/post.js"></script>
 
 </body>
 

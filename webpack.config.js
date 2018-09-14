@@ -2,10 +2,13 @@ let webpack = require("webpack");
 
 module.exports = {
   context: __dirname + "/src/",
-  entry: "./js/index.js",
+  entry: {
+    main: "./js/index.js",
+    post: "./js/post.js"
+  },
   output: {
     path: __dirname + "/build",
-    filename: "build.js",
+    filename: "[name].js",
     publicPath: "/build/"
   },
   module: {

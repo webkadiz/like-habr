@@ -1,0 +1,163 @@
+@import './config'
+
+.post
+	&__author
+		display: flex
+		align-items: center
+		flex-wrap: wrap
+		position: relative
+		&:before
+			content: ''
+			position: absolute
+			bottom: 0
+			left: -1.5rem
+			right: -1.5rem
+			height: 1px
+			background: $color-panel
+		&-image
+		&-name
+			color: $color-active
+			font-weight: bold
+			font-size: 1.4rem
+			white-space: nowrap
+			margin-left: 1.2rem
+		&-date
+			white-space: nowrap
+			font-size: 1.1rem
+			color: $color-disactive
+			margin-left: 3rem
+		&-title
+			flex-basis: 100%
+			margin: 2rem 0
+			font-size: 2.5rem
+			color: $color-panel-text
+	&__content
+		padding-top: 2rem
+		font-size: 1.5rem
+		line-height: 2.2rem
+		color: $color-post-text
+
+
+.discuss
+	margin-top: 4rem
+	&__inner
+		display: flex
+		padding-top: 2rem
+		position: relative
+		&:before
+			content: ""
+			position: absolute
+			left: -1.5rem
+			right: -1.5rem
+			top: 0
+			height: 1px
+			background: $color-panel
+	&__content
+		flex: 2
+		margin-right: 3rem
+	&__match
+		flex: 1
+	.toolbar
+		display: flex
+		justify-content: space-between
+		align-items: center
+		margin-bottom: 2rem
+		&__icons
+			display: flex
+		&__icon
+			display: flex
+			align-items: center
+			color: $color-active
+			margin-right: 2.2rem
+		&__number
+			font-size: 1.3rem
+			margin-left: 1.3rem
+		&__rating
+			font-weight: bold
+			font-size: 1.3rem
+			i
+				cursor: pointer
+				opacity: .6
+				&:hover
+					opacity: 1
+			.icon-minus
+				color: $color-negative
+				margin-right: 1rem
+			.icon-plus
+				color: $color-positive
+				margin-left: 1rem
+	.share
+		display: flex
+		align-items: center
+		&__item
+			cursor: pointer
+			margin-left: 1rem
+			opacity: 1
+			&:hover
+				opacity: .8
+		&__title
+			margin-right: 1.7rem
+			font-size: 1.3rem
+			color: $color-post-text
+	.about
+		width: calc(100% + 1.5rem)
+		padding: 3rem 1.5rem
+		margin-left: -1.5rem
+		border: 1px solid $color-panel
+		&__wrapper
+			display: flex
+			justify-content: space-between
+		&__info
+			display: flex
+		&__field
+			margin-left: 2rem
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+			align-items: center
+		&__value
+			font-size: 2.5rem
+			font-weight: bold
+			&-rating
+				color: $color-positive
+			&-follower
+				color: $color-active
+		&__label
+			color: $color-post-text
+			font-size: 1.2rem
+			opacity: .5
+		&__buttons
+			display: flex
+		&__button
+			height: 3.2rem
+			border-radius: 4px
+			padding: 0 2rem
+			display: flex
+			align-items: center
+			text-transform: uppercase
+			margin-left: 2rem
+			font-size: 1.1rem
+			transition: .2s
+			i
+				margin-right: 1rem
+		&__write
+			opacity: .6
+			color: $color-search
+			border: 1px solid $color-search
+			&:hover
+				opacity: 1
+		&__subscribe
+			color: $color-positive
+			border: 1px solid $color-positive
+			&:hover
+				background: $color-positive
+				color: white
+		&__name
+			margin-top: 2.5rem
+			font-size: 1.8rem
+			color: $color-active
+			font-weight: bold
+		&__description
+			font-size: 1.3rem
+			margin-top: .3rem
+			color: $color-post-text

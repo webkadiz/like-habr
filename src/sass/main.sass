@@ -1,12 +1,4 @@
-$color-search: #878787
-$color-active: #3780ca
-$color-disactive: #bababa
-$color-panel: #ebebeb
-$color-panel-text: #6d6d6d
-$color-panel-border: #d3d3d3
-$color-positive: #338550
-$color-negative: #bc2b2b
-$color-footer: #f4f2f2
+@import './config'
 
 *
 	box-sizing: border-box
@@ -335,7 +327,7 @@ img
 						color: $color-active
 						border: 1px solid $color-active
 						border-radius: 4px
-						display: block
+						display: inline-block
 						text-transform: uppercase
 						margin-bottom: 10rem
 						transition: .2s
@@ -478,17 +470,17 @@ img
 .subfooter
 	margin-top: 10rem
 	position: relative
-	&:before
-		content: ''
-		position: absolute
-		top: -3rem
-		left: 0
-		right: 0
-		height: 1px
-		background: $color-panel
 	&__inner
 		display: flex
-		position: relative		
+		position: relative
+		&:before
+			content: ''
+			position: absolute
+			top: -3rem
+			left: -1.5rem
+			right: -1.5rem
+			height: 1px
+			background: $color-panel	
 		.watching
 			position: relative
 			flex: 2
