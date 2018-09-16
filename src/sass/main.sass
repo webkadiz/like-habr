@@ -1,49 +1,5 @@
 @import './config'
 
-*
-	box-sizing: border-box
-
-html
-	font-size: 10px
-	height: 100%
-
-body
-	position: relative
-	font-size: 1.5rem
-	font-family: 'Roboto', sans-serif
-
-
-.container
-	max-width: 1174px
-	margin: 0 auto
-	padding: 0 10px
-
-ul
-	margin: 0
-	padding: 0
-	list-style-type: none
-
-a
-	text-decoration: none
-	color: white
-	display: block
-
-h1, h2, h3, h4, h5, h6
-	margin: 0	
-
-button
-	background: none
-	border: none
-	outline: none
-
-img
-	max-width: 100%
-
-[class^="icon-"]:before, [class*=" icon-"]:before
-	margin: 0
-
-.page
-	position: relative
 
 .positive
 	color: $color-positive
@@ -70,14 +26,16 @@ img
 	left: 50%
 	color: $color-active
 	font-weight: bold
-	transform: translate(-50%, -50%)
 	z-index: 100
+	+long-shadow(rgba(0,0,0,.03))
 	&__top
+		padding: 0 4rem
 		overflow: hidden
 		&-content
 			white-space: nowrap
 			transform: translate(2px, 45%)
 	&__bottom
+		padding: 0 4rem		
 		overflow: hidden
 		&-content
 			white-space: nowrap
@@ -102,7 +60,7 @@ img
 
 .header	
 	&__bg
-		background: url("../img/header-back.png") no-repeat
+		background: url("../img/header-bg.png") no-repeat
 		background-size: 100% 100%
 		position: absolute
 		height: 20.5rem
@@ -144,37 +102,38 @@ img
 			justify-content: center
 			align-items: center
 			.search
-				color: $color-search
+				color: white
 				font-size: 2.8rem
-				opacity: .6
+				opacity: 1
 				cursor: pointer
 				transition: .2s
 				&:hover
-					opacity: 1
+					opacity: .6
 			.entry
 				cursor: pointer
 				padding: 0 2.8rem
-				border: 1px solid $color-search
+				border: 1px solid white
 				border-radius: 4px
 				text-transform: uppercase
-				color: $color-search
+				color: white
 				height: 3.8rem
+				line-height: 3.8rem
 				margin: 0 1.8rem
 				transition: .2s
 				&:hover
-					background: $color-search
-					color: white
+					background: white
+					color: $color-active
 			.register
 				@extend .entry
 				margin: 0
-				border: 1px solid $color-active
-				color: $color-active
+				border: 1px solid $color-register
+				color: $color-register
 				&:hover
-					background: $color-active
-					color: white	
+					background: $color-register
+					color: $color-active	
 
 .content
-	padding-top: 9.2rem
+	padding-top: 13.2rem
 	&__inner
 		display: flex
 		justify-content: space-between
@@ -336,11 +295,13 @@ img
 							color: white
 		.sidebar
 			flex: 1
+			perspective: 1000px
 			.categoryes
 				position: relative
 				background: $color-panel
+				+transform-sidebar()
 				&__list
-					padding: 2rem 0
+					padding: 3rem 0
 					& li:last-child .categoryes__item
 						border: none
 				&__item
@@ -354,15 +315,11 @@ img
 					transition: .2s
 					&-rating
 						transition: .2s
-					&:hover
-						background: $color-active
-						color: white
-						.positive, .negative
-							color: white
 			.reading
 				position: relative
 				background: $color-panel
 				margin-top: 8.5rem
+				+transform-sidebar()
 				&__list
 					padding: 2rem 0
 					& li:last-child .reading__item
@@ -390,6 +347,7 @@ img
 				position: relative
 				background: $color-panel
 				margin-top: 8.5rem
+				+transform-sidebar()
 				&__list
 					padding: 2rem 0
 				&__item

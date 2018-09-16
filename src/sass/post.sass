@@ -56,9 +56,7 @@
 			background: $color-panel
 	&__content
 		flex: 2
-		margin-right: 3rem
-	&__sidebar
-		flex: 1
+		margin-right: 3rem	
 	.toolbar
 		display: flex
 		align-items: center
@@ -163,20 +161,25 @@
 			font-size: 1.3rem
 			margin-top: .3rem
 			color: $color-post-text
+	&__sidebar
+		flex: 1
+		perspective: 1000px
+		padding-top: 2rem
 	.match
 		position: relative
 		background: $color-panel
+		+transform-sidebar()
 		&__subfilter
 			justify-content: center
 			padding: 2rem 5rem
 			padding-top: 2.5rem
-			border-bottom: 1px solid $color-panel-border
+			border-bottom: 2px solid $color-panel-border
 		&__list
 			& li:last-child .match__item
 				border: none
 		&__item
 			padding: 1.6rem 5rem
-			border-bottom: 1px solid $color-panel-border
+			border-bottom: 2px solid $color-panel-border
 		&__date
 			color: $color-disactive
 			margin-bottom: 0.7rem
@@ -291,6 +294,16 @@
 		color: $color-panel-text
 		font-weight: bold
 		font-size: 1.6rem
+		display: flex
+	&__icon
+		cursor: pointer
+		display: flex
+		justify-content: center
+		align-items: center
+		margin-right: 2rem
+		transition: .2s
+		&:hover
+			color: lighten($color-panel-text, 10%)
 	&__body
 		resize: vertical
 		outline: none

@@ -4,7 +4,8 @@ module.exports = {
   context: __dirname + "/src/",
   entry: {
     main: "./js/index.js",
-    post: "./js/post.js"
+    post: "./js/post.js",
+    register: './js/register.js'
   },
   output: {
     path: __dirname + "/build",

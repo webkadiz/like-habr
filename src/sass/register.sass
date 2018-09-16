@@ -1,0 +1,42 @@
+@import './config'
+
+
+.page
+	height: 100vh
+	width: 100vw
+	background: linear-gradient($color-gradient-darken, $color-gradient-light)
+	display: flex
+	justify-content: center
+	align-items: center
+
+.switch
+	position: relative
+	display: flex
+	justify-content: space-between
+	width: 50rem
+	input
+		display: none
+	&__slider
+		flex-shrink: 0
+		position: absolute
+		left: 0
+		bottom: 0
+		width: 12rem
+		height: 1px
+		background: white
+		transition: .3s
+	&__entry + label, &__register + label
+		cursor: pointer
+		padding: 1rem
+		color: white
+		text-transform: uppercase
+		font-size: 2rem
+		width: 12rem
+		text-align: center
+	&__entry:checked ~ .switch__slider
+		left: 0
+	&__register:checked ~ .switch__slider
+		left: calc(100% - 12rem)
+
+
+.main
