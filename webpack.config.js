@@ -5,7 +5,8 @@ module.exports = {
   entry: {
     main: "./js/index.js",
     post: "./js/post.js",
-    register: './js/register.js'
+    register: "./js/register.js",
+    write: "./js/write.js"
   },
   output: {
     path: __dirname + "/build",
@@ -19,7 +20,7 @@ module.exports = {
         use: ["style-loader", "css-loader"]
       },
       {
-        test: /\.sass$/,
+        test: /\.(sass|scss)$/,
         use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
@@ -29,11 +30,12 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".sass", ".css", ".js"]
+    extensions: [".sass", ".scss", ".css", ".js"]
   },
   devServer: {
     overlay: true,
-    watchContentBase: true
+    watchContentBase: true,
+    port: 3000
   },
   mode: "development",
   devtool: "eval"

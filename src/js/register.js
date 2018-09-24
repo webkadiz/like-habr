@@ -8,15 +8,15 @@ class Switcher {
   //prettier-ignore
   constructor({containerClass, switcherClass, activeClass, sliderClass, dataAttr}) {
     this.containerClass = containerClass;
-    this.switcherClass = switcherClass;
-    this.activeClass = activeClass;
-    this.sliderClass = sliderClass;
-    this.dataAttr = dataAttr;
-    this.container = document.querySelector(containerClass);
-    this.switcher = this.container.querySelectorAll(switcherClass);
-    this.active = this.container.querySelector(activeClass);
-    this.slider = this.container.querySelector(sliderClass);
-    this.callback = () => {};
+    this.switcherClass  = switcherClass;
+    this.activeClass    = activeClass;
+    this.sliderClass    = sliderClass;
+    this.dataAttr       = dataAttr;
+    this.container      = document.querySelector(containerClass);
+    this.switcher       = this.container.querySelectorAll(switcherClass);
+    this.active         = this.container.querySelector(activeClass);
+    this.slider         = this.container.querySelector(sliderClass);
+    this.callback       = () => {};
   }
   init() {
     this.active && this.update(this.active);
@@ -32,9 +32,9 @@ class Switcher {
     });
   }
   update(elem) {
-    this.slider.style.left = elem.offsetLeft + "px";
+    this.slider.style.left  = elem.offsetLeft + "px";
     this.slider.style.width = elem.clientWidth + "px";
-    this.data = elem.getAttribute(this.dataAttr);
+    this.data               = elem.getAttribute(this.dataAttr);
     this.callback();
   }
   bind(callback) {
@@ -47,10 +47,10 @@ class Switcher {
 
 let switcher = new Switcher({
   containerClass: ".switch",
-  switcherClass: ".switch__input",
-  activeClass: ".switch__active",
-  sliderClass: ".switch__slider",
-  dataAttr: "data-switch"
+  switcherClass : ".switch__input",
+  activeClass   : ".switch__active",
+  sliderClass   : ".switch__slider",
+  dataAttr      : "data-switch"
 });
 //prettier-ignore
 switcher.bind(function() {

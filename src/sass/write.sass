@@ -1,0 +1,143 @@
+@import './config'
+
+.main__title
+	margin-bottom: 7rem
+
+.comments-write
+	&__block
+		margin: .5rem 0
+	&__header
+		padding: 1rem
+		color: $color-panel-text
+		font-weight: bold
+		font-size: 1.6rem
+		display: flex
+		border: 1px solid darken($color-panel, 10%)
+		border-bottom: none
+	&__icon
+		cursor: pointer
+		display: flex
+		justify-content: center
+		align-items: center
+		margin-right: 2rem
+		transition: .2s
+		&:hover
+			color: lighten($color-panel-text, 10%)
+	&__body
+		display: block
+		resize: vertical
+		outline: none
+		width: 100%
+		border: 1px solid darken($color-panel, 10%)
+		min-height: 17rem
+		transition: border .2s
+		padding: 1rem
+		color: $color-post-text
+		outline: none
+		&:focus
+			border: 1px solid lighten($color-active, 20%)
+	&__preview, &__send
+		cursor: pointer
+		padding: .8rem 2rem
+		border-radius: 3px
+		transition: .2s
+	&__preview		
+		color: lighten($color-active, 8%)
+		border: 1px solid lighten($color-active, 8%)
+		margin-right: 1rem
+		transition: .4s
+		&:hover
+			color: white
+			background: lighten($color-active, 8%)
+	&__send
+		color: white
+		background: lighten($color-active, 8%)
+		&:hover
+			opacity: 0.8
+
+.enter
+	margin-top: 2rem
+	&__label
+		display: block
+		font-weight: bold
+		color: $color-active
+		text-transform: capitalize
+		font-size: 1.8rem
+	&__description
+		display: block
+		color: lighten($color-search, 5%)
+	&__input
+		width: 100%
+		margin: .5rem 0
+		padding-left: 2rem
+		font-size: 1.4rem
+		height: 4rem
+		line-height: 4rem
+		border: 1px solid darken($color-panel, 10%)
+		outline: none
+		transition: .2s
+		color: $color-post-text
+		&:focus
+			border: 1px solid lighten($color-active, 20%)
+
+
+.selectric
+	background: transparent
+	position: relative
+	margin: .5rem 0
+	border: none
+	& .label
+		margin: 0
+		height: auto
+		line-height: 1
+		padding-left: 2rem
+		font-size: 1.4rem
+		height: 4rem
+		line-height: 4rem
+		border: 1px solid darken($color-panel, 10%)
+		transition: .2s
+		color: $color-post-text
+	&-items
+		border: 1px solid darken($color-panel, 10%)
+		background: $color-panel
+		border-top: none
+		ul
+			li
+				transition: .2s
+				padding-left: 2rem
+				color: $color-post-text
+				&:hover
+					background: darken($color-panel, 10%)
+			li.selected
+				background: lighten($color-active, 10%)
+				color: white
+	&-arrow
+		position: absolute
+		right: 2rem
+		top: 0
+		width: 1.5rem
+		height: 100%
+		&:before, &:after
+			transition: .2s
+			content: ''
+			position: absolute
+			top: 50%
+			left: 50%
+			height: 1.5rem
+			width: 1px
+			background: $color-post-text
+			border-radius: 8px
+			transform-origin: top
+			transform: translate(-50%, -30%) rotate(45deg)
+		&:after
+			transform: translate(-50%, -30%) rotate(-45deg)
+
+.selectric-open
+	.selectric-arrow
+		&:before, &:after
+			transform-origin: bottom
+			transform: translate(-50%, -50%) rotate(45deg)
+		&:after
+			transform: translate(-50%, -50%) rotate(-45deg)
+	& .label
+		border: 1px solid lighten($color-active, 20%)
