@@ -1,0 +1,35 @@
+.box-icon
+	display: flex
+	justify-content: space-between
+	align-items: center;
+	font-size: 1em
+	&__item
+		cursor: pointer
+		display: flex
+		align-items: center
+		margin-right: 2rem
+		&:last-child
+			margin-right: 0
+		&:hover
+			color: var(--color-active)
+			& > *
+				opacity: 1
+		i
+			transition: .2s
+	&__number
+		font-size: .9em
+		transition: .2s
+		margin-left: 1rem
+	&__rate
+		margin: 0
+		font-weight: bold
+
+.box-icon_direct_column
+	flex-direction: column
+	.box-icon__item
+		margin-right: 0
+
+@each $color in grey_dark, active, green
+	.box-icon_theme_#{$color}
+		@debug $color
+		color: var(--color-#{$color})

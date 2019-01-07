@@ -1,0 +1,27 @@
+.sidebar
+	flex: 1
+	perspective: 1000px
+	&__item
+		position: relative
+		background: var(--color-grey_light)
+		transform-style: preserve-3d
+		transform: rotateY(-20deg)
+		box-shadow: 15px 15px 50px -7px rgba(0,0,0,.15)
+	&__list-item
+		transition: .2s
+		&:hover
+			transform: translateZ(15px)
+			box-shadow: 5px 11px 5px -3px rgba(0,0,0,.22)
+			border-color: transparent
+			background: var(--color-active)
+		&:hover:before
+			background: white
+		&:hover *
+			color: white
+	&__category
+		&-list
+			padding: 3rem 0
+	&__reading
+		margin-top: 8.5rem
+		&-list
+			padding: 2rem 0

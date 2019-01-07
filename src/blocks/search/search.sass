@@ -1,0 +1,12 @@
+.search
+	font-size: 2em
+	opacity: 1
+	cursor: pointer
+	transition: .2s
+	&:hover
+		opacity: .6
+
+
+@each $color in white, yellow
+	.search_theme_#{$color}
+		color: var(--color-#{$color})

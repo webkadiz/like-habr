@@ -1,0 +1,45 @@
+.menu
+	height: 13.8rem
+	display: flex
+	justify-content: space-between
+	align-items: center
+	.menu__left
+		display: flex
+		flex-grow: 1
+	.menu__right
+		display: flex
+		justify-content: flex-end
+		align-items: center
+		&-margin
+			margin: 0 1.2rem
+	.logo
+		display: flex
+		align-items: center;	
+		flex-shrink: 0;
+		width: 23rem
+		img
+			width: 100%
+	.nav
+		margin: 0 5vw
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-shrink: 0;
+		flex-grow: 1
+		&__item
+			cursor: pointer
+			text-transform: uppercase
+			padding: 1rem
+			position: relative
+			&:before
+				content: ''
+				position: absolute
+				width: 100%
+				bottom: 0
+				left: 50%
+				transform: translateX(-50%) scaleX(0)
+				height: 2px
+				background: white
+				transition: .2s
+			&:hover:before
+				transform: translateX(-50%) scaleX(1)

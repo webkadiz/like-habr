@@ -1,0 +1,26 @@
+.sidebar-list
+	&__item
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 2rem 3rem
+		border-bottom: 2px solid #d3d3d3;
+		&:last-child
+			border-bottom: none
+	&__title
+		font-size: 1.3em
+		color: var(--color-on-grey)
+		font-weight: bold
+	&__rate
+		font-weight: bold
+		&_positive
+			color: var(--color-positive)
+		&_negative
+			color: var(--color-negative)
+	&__box-icon
+		margin-top: 1rem
+
+.sidebar-list_direct_column
+	.sidebar-list__item
+		flex-direction: column
+		align-items: flex-start
