@@ -1,0 +1,66 @@
+extends layout
+include ~components/filter-post/template
+include ~components/filter-time/template
+
+
+block content
+  .article
+    .article__filter
+      .article__title
+        h1 все статьи
+      +filter-post.article__filter-post
+      +filter-time.article__filter-time
+    .article__preview
+      .article__preview-item.post-preview
+        .post-preview__author.post-author
+          .post-author__info
+            img.post-author__img(src=require('../img/user1.svg'), width='42px', height='42px')
+            .post-author__name Ткаченко Владислав
+            .post-author__date 14 : 05 9 сентября
+          ul.post-author__tag.post-preview__author-tag
+            li
+              a.post-author__tag-item.post-author__tag-item-active(href="#") JavaScript,
+            li
+              a.post-author__tag-item(href='#') PHP,  
+            li
+              a.post-author__tag-item(href='#') WEB,  
+            li
+              a.post-author__tag-item(href='#') test
+        .post-img
+          img.post-img__img(src=require('../img/coder.jpg'))
+          .post-img__blackout
+          .post-img__title 1 сентября 2017 года я стал программистом
+        .post-desc.post-desc_lines.post-preview__desc
+          .post-desc__text
+            | В 1990 году был написан первый код. Его писал Страуструп - основатель языка С++. он
+            | писал про все, как им пользоваться, алгоритмы, компиляторы, лайфхаки, хитрости и многое
+            | другое. Он рассказывал про синтаксис языка , то как его надо использовать и зачем он
+            | нужен. как на нем писать мобильные приложения, web приложения, десктоп приложение,
+            | драйвера и многоу другое. так же обучал функциональному... приграммированию и
+            | объектно-ориентированному программированию. давал советы, учил, помогал, подсказывал,
+            | сидел в социальных сетях
+          .post-desc__icons.box-icon.box-icon_direct_column.box-icon_theme_grey_dark
+            .box-icon__item
+              i.icon-eye.box-icon__icon
+              .box-icon__number 35
+            .box-icon__item
+              i.icon-bookmark.box-icon__icon
+              .box-icon__number 2
+            .box-icon__item
+              i.icon-comments.box-icon__icon
+              .box-icon__number 122
+            .box-icon__item
+              .box-icon__number.box-icon__rate +37
+        .post-preview__more.button-acute.button-acute_theme_active.button-acute_size_m
+          a.button-acute__inner(href='/post.html') читать далее
+    nav.pagination.article__pagination
+      a.pagination__item.pagination__left(href='#')
+      a.pagination__item(href='#') 1
+      a.pagination__item(href='#') 2
+      a.pagination__item.pagination__item_active(href='#') 3
+      a.pagination__item(href='#') 4
+      a.pagination__item(href='#') 5
+      a.pagination__item(href='#') 6
+      a.pagination__item(href='#') 7
+      a.pagination__item.pagination__right(href='#')
+      .pagination__slider

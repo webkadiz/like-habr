@@ -1,0 +1,17 @@
+.menu
+  .menu__left
+    include ~components/logo/logo
+    nav.nav
+      a.nav__item(href="#") главная
+      a.nav__item(href="#") обо мне
+      a.nav__item(href="#") контакты
+      a.nav__item(href="#") теги
+  .menu__right
+    .search.search_theme_white.menu__right-margin
+      i.icon-search
+    a.write(href="/write.html")
+      i.fas.fa-pencil-alt
+    .button-acute.button-acute_theme_white.button-acute_size_m.menu__right-margin
+      a.button-acute__inner(href="/register.html") войти
+    .button-acute.button-acute_theme_yellow.button-acute_size_m
+      a.button-acute__inner(href="/register.html") регистрация

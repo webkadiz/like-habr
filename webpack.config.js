@@ -1,47 +1,78 @@
-let webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
 
 module.exports = {
- context: __dirname + "/src/",
- entry: {
-  index: "./js/index.js",
-  post: "./js/post.js",
-  register: "./js/register.js",
-  write: "./js/write.js"
- },
- output: {
-  path: __dirname + "/build",
-  filename: "[name].js",
-  publicPath: "/build/"
- },
- module: {
-  rules: [
-   {
-    test: /\.css$/,
-    use: ["style-loader", "css-loader"]
-   },
-   {
-    test: /\.(sass|scss)$/,
-    use: ["style-loader", "css-loader", "sass-loader"]
-   },
-   {
-    test: /\.(png|jpg|svg|eot|ttf|woff|woff2)$/,
-    loader: "file-loader?name=[path][name].[ext]"
-   }
+  entry: {
+    index: "./src/js/index.js",
+    post: "./src/js/post.js",
+    register: "./src/js/register.js",
+    write: "./src/js/write.js",
+  },
+  output: {
+    path: __dirname + "/build",
+    filename: "js/[name].js",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(sass|scss)$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        loader: "file-loader?name=fonts/[name].[ext]"
+      },
+      {
+        test: /\.(png|jpg|svg)$/,
+        loader: "file-loader?name=img/[name].[ext]"
+      },
+      {
+        test: /\.html$/,
+        loader: "html-loader"
+      },
+      {
+        test: /\.pug$/,
+        loader: "pug-loader"
+      }
+    ]
+  },
+  resolve: {
+    extensions: [".js", ".sass", ".scss", ".css"],
+    alias: {
+      components: __dirname + "/src/blocks",
+      sass: __dirname + "/src/sass"
+    }
+  },
+  devServer: {
+    overlay: true,
+    contentBase: './build',
+    watchContentBase: true,
+    port: 3000
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "src/templates/index.pug",
+      chunks: ["index"],
+      filename: "index.html"
+    }),
+    new HtmlWebpackPlugin({
+      template: "src/templates/post.pug",
+      chunks: ["post"],
+      filename: "post.html"
+    }),
+    new HtmlWebpackPlugin({
+      template: "src/templates/register.html",
+      chunks: ["register"],
+      filename: "register.html"
+    }),
+    new HtmlWebpackPlugin({
+      template: "src/templates/write.pug",
+      chunks: ["write"],
+      filename: "write.html"
+    }),
   ]
- },
- resolve: {
-  extensions: [".sass", ".scss", ".css", ".js"]
- },
- //  optimization: {
- //   splitChunks: {
- //    chunks: "all"
- //   }
- //  },
- devServer: {
-  overlay: true,
-  watchContentBase: true,
-  port: 3000
- },
- mode: "development",
- devtool: "eval"
 };

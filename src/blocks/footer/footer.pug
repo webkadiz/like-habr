@@ -1,0 +1,38 @@
+
+
+- var firstNav = ['главная', 'контакты', 'обо мне', 'теги'] 
+- var secondNav = ['веб разработка', 'мобильная разработка', 'нискоуровневая разработка', 'desktop разработка', 
+-	'разработка сетевых демонов', 'высоконагруженная разраб...', 'базы данных', 'php', 'javascript']
+-	var thirdNav = ['правила', 'помощь', 'документация', 'соглашение', 'конфиденсальность']
+
+.footer
+	.container
+		.footer__inner
+			nav.footer__navigation
+				.footer__title навигация
+				ul.footer__list
+					for navItem in firstNav
+						li
+							a.footer__item(href="#")= navItem
+				
+			nav.footer__navigation
+				.footer__title категории
+				
+				ul.footer__list
+					for navItem in secondNav
+							li
+								a.footer__item(href="#")= navItem
+
+			nav.footer__navigation
+				.footer__title информация
+				
+				ul.footer__list
+					for navItem in thirdNav
+							li
+								a.footer__item(href="#")= navItem
+			
+			.signature
+				img(src=require("../../img/signature.png") alt="")
+				button.button-press
+					i.icon-mail-alt
+					| webkadiz@gmail.com

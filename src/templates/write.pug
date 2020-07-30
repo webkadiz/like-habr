@@ -1,0 +1,53 @@
+extends layout
+
+block content
+	<div>
+		<div class="title__main main__title">
+			<h1>напишите публикацию</h1>
+		</div>
+		<div class="enter">
+			<label class="enter__label">категория:</label>
+			<select class="enter__category enter__input">
+				<option value="">мобильная разработка</option>
+				<option value="">desktop разработка</option>
+				<option value="">веб разработка</option>
+				<option value="">нискоуровневая разработка</option>
+			</select>
+			<small class="enter__description"></small>
+		</div>
+		<div class="enter">
+			<label class="enter__label">метки:</label>
+			<select class="enter__marks enter__input">
+				<option value="">C++</option>
+				<option value="">JavaScript</option>
+				<option value="">Python</option>
+				<option value="">PHP</option>
+			</select>
+			<small class="enter__description">укажите от 1 до 5 меток</small>
+		</div>
+		<div class="enter">
+			<label class="enter__label">заголовок:</label>
+			<input type="text" class="enter__title enter__input">
+			<small class="enter__description">Заголовок должен быть наполнен смыслом, чтобы можно было понять, о чем будет публикация.</small>
+		</div>
+		
+		<div class="comments-write enter">
+			<div class="comments-write__title enter__label">текст:</div>
+			<div class="comments-write__block">
+				<div class="comments-write__header">
+					<div class="comments-write__icon"><i class="icon-bold"></i></div>
+					<div class="comments-write__icon"><i class="icon-italic"></i></div>
+					<div class="comments-write__icon"><i class="icon-underline"></i></div>
+					<div class="comments-write__icon"><i class="icon-strike"></i></div>
+					<div class="comments-write__icon"><i class="icon-quote"></i></div>
+					<div class="comments-write__icon"><i class="icon-link"></i></div>
+					<div class="comments-write__icon"><i class="icon-image"></i></div>
+				</div>	
+				<textarea class="comments-write__body"></textarea>
+			</div>
+			<div class="comments-write__footer enter">
+				<button class="comments-write__preview">предпросмотр</button>
+				<button class="comments-write__send">отправить на модерацию</button>
+			</div>
+		</div>
+	</div>

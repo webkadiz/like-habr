@@ -1,0 +1,104 @@
+include ~components/slashed/slashed
+
+aside.sidebar
+	.sidebar__item.sidebar__category
+		+slashed("Категории")
+		nav.sidebar-list.sidebar__category-list
+			a.sidebar-list__item.sidebar__list-item(href="#")
+				.sidebar-list__title веб разработка
+				.sidebar-list__info
+					.sidebar-list__rate.sidebar-list__rate_positive +45
+			a.sidebar-list__item.sidebar__list-item(href="#")
+				.sidebar-list__title мобильная разработка
+				.sidebar-list__info
+					.sidebar-list__rate.sidebar-list__rate_positive +2
+			a.sidebar-list__item.sidebar__list-item(href="#")
+				.sidebar-list__title desktop разработка
+				.sidebar-list__info
+					.sidebar-list__rate.sidebar-list__rate_negative -47
+			a.sidebar-list__item.sidebar__list-item(href="#")
+				.sidebar-list__title нискоуровневая разработка
+				.sidebar-list__info
+					.sidebar-list__rate.sidebar-list__rate_positive +3
+			a.sidebar-list__item.sidebar__list-item(href="#")
+				.sidebar-list__title разработка сетевых демонов
+				.sidebar-list__info
+					.sidebar-list__rate.sidebar-list__rate_negative -122
+			a.sidebar-list__item.sidebar__list-item(href="#")
+				.sidebar-list__title высоконагруженная разраб...
+				.sidebar-list__info
+					.sidebar-list__rate.sidebar-list__rate_positive +65
+			a.sidebar-list__item.sidebar__list-item(href="#")
+				.sidebar-list__title базы данных
+				.sidebar-list__info
+					.sidebar-list__rate.sidebar-list__rate_positive +77
+			a.sidebar-list__item.sidebar__list-item(href="#")
+				.sidebar-list__title php
+				.sidebar-list__info
+					.sidebar-list__rate.sidebar-list__rate_negative -31
+			a.sidebar-list__item.sidebar__list-item(href="#")
+				.sidebar-list__title javascript
+				.sidebar-list__info
+					.sidebar-list__rate.sidebar-list__rate_positive +40
+			
+
+	.sidebar__item.sidebar__reading
+		+slashed("Рекомендуем")
+		nav.sidebar__reading-list.sidebar-list.sidebar-list_direct_column
+			a.sidebar__list-item.sidebar-list__item(href="#")
+				h2.sidebar-list__title Новое открытие в сфере IT создали новый язык
+				.box-icon.sidebar-list__box-icon.box-icon_theme_active
+					.box-icon__item
+						i.icon-eye.box-icon__icon
+						.box-icon__number 6
+					.box-icon__item
+						i.icon-comments.box-icon__icon
+						.box-icon__number 42
+			a.sidebar__list-item.sidebar-list__item(href="#")
+				h2.sidebar-list__title Новое открытие в сфере IT создали новый язык
+				.box-icon.sidebar-list__box-icon.box-icon_theme_active
+					.box-icon__item
+						i.icon-eye.box-icon__icon
+						.box-icon__number 12
+					.box-icon__item
+						i.icon-comments.box-icon__icon
+						.box-icon__number 666
+			a.sidebar__list-item.sidebar-list__item(href="#")
+				h2.sidebar-list__title Новое открытие в сфере IT создали новый язык
+				.box-icon.sidebar-list__box-icon.box-icon_theme_active
+					.box-icon__item
+						i.icon-eye.box-icon__icon
+						.box-icon__number 1
+					.box-icon__item
+						i.icon-comments.box-icon__icon
+						.box-icon__number 3455
+	.sidebar__item.sidebar__author
+		+slashed("Авторы")
+		nav.sidebar-list.sidebar__author-list
+			a.author__item(href="#" style="--rating: 64%")
+				.author__info
+					img.author__image(src=require("../img/user2.svg") alt="" width="42" height="42")
+					div
+						.author__name Ткаченко Владислав
+						.author__rating 1233
+				.author__subscribe
+					i.icon-follower
+					.author__number 567
+			a.author__item(href="#" style="--rating: 80%")
+				.author__info
+					img.author__image(src=require("../img/user1.svg") alt="" width="42" height="42")
+					div
+						.author__name Ольга Павловна
+						.author__rating 55555555555555
+				.author__subscribe
+					i.icon-follower
+					.author__number 2
+			a.author__item(href="#" style="--rating: 40%")
+				.author__info
+					img.author__image(src=require("../img/user2.svg") alt="" width="42" height="42")
+					div
+						.author__name Плотников Владислав
+						.author__rating 65
+				.author__subscribe
+					i.icon-follower
+					.author__number 88
