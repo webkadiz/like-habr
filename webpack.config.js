@@ -28,7 +28,22 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|svg)$/,
-        loader: "file-loader?name=img/[name].[ext]"
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'img/[name].[ext]'
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                quality: 50
+              }
+            }
+          }
+        ]
       },
       {
         test: /\.html$/,
